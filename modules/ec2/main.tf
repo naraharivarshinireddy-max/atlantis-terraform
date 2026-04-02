@@ -4,6 +4,6 @@ resource "aws_instance" "this" {
   key_name      = var.key_name
 
   tags = {
-    Name = var.name
-  }
+  Name = "atlantis-server-v2"
+}
 }
