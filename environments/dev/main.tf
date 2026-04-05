@@ -22,3 +22,4 @@ module "ec2" {
 }
 # trigger again
 # trigger fresh run
+# restart trigger
