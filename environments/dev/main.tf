@@ -19,4 +19,14 @@ module "ec2" {
   instance_type = var.instance_type
   key_name      = var.key_name
   name = "atlantis-server-v3"
+
 }
+
+}
+terraform {
+  required_version = ">= 1.0"
+}
+# trigger again
+# trigger fresh run
+# restart trigger
+
