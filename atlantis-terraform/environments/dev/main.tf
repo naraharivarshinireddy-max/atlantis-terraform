@@ -9,7 +9,7 @@ module "ec2" {
   instance_type = var.instance_type
   name          = var.name
   tags = {
-  Env = "demo-run"
+  Env = "demo"
 }
 
 }
