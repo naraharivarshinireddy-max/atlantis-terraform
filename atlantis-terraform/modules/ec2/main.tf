@@ -1,9 +1,12 @@
+provider "aws" {
+  region = "ap-south-1"
+}
+
 resource "aws_security_group" "this" {
-  name        = "${var.name}-sg"
-  description = "Allow SSH and HTTP"
+  name        = "atlantis-staging-sg-demo"
+  description = "Security group for Atlantis demo"
 
   ingress {
-    description = "SSH"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -11,9 +14,8 @@ resource "aws_security_group" "this" {
   }
 
   ingress {
-    description = "HTTP"
-    from_port   = 80
-    to_port     = 80
+    from_port   = 4141
+    to_port     = 4141
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -27,11 +29,13 @@ resource "aws_security_group" "this" {
 }
 
 resource "aws_instance" "this" {
-  ami                    = var.ami
-  instance_type          = var.instance_type
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+
   vpc_security_group_ids = [aws_security_group.this.id]
 
   tags = {
-    Name = var.name
+    Name = "atlantis-demo-instance"
+    Env  = "staging-demo"
   }
 }
