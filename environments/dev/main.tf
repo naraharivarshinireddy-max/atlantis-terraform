@@ -18,7 +18,7 @@ module "ec2" {
   ami           = var.ami
   instance_type = var.instance_type
   key_name      = var.key_name
-  name = "atlantis-server-v3"
+  name = "atlantis-server-final"
 }
 terraform {
   required_version = ">= 1.0"
